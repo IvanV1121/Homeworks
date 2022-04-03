@@ -28,4 +28,22 @@ public class Author {
     public String toString() {
         return "Author[name: " + name + ' ' + ", email: " + email + ' ' + "gender: " + gender + ']';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        Author author = (Author) obj;
+        return (Character.compare(this.gender, author.gender) == 0) && (this.name.equals(author.name)) &&
+                (this.email.equals(author.email));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (int) gender;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
 }

@@ -82,5 +82,27 @@ public class Ball {
         }
         return "Error";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        Ball ball = (Ball) obj;
+        return (Float.compare(this.x, ball.x) == 0) && (Float.compare(this.y, ball.y) == 0) &&
+               (Float.compare(this.xDelta, ball.xDelta) == 0) && (Float.compare(this.yDelta, ball.yDelta) == 0) &&
+               (this.radius == ball.radius);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Float.hashCode(x);
+        result = 31 * result + Float.hashCode(y);
+        result = 31 * result + Float.hashCode(xDelta);
+        result = 31 * result + Float.hashCode(yDelta);
+        result = 31 * result + radius;
+        return result;
+    }
 }
 

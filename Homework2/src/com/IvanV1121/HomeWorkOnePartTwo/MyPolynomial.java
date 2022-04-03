@@ -1,5 +1,6 @@
 package com.IvanV1121.HomeWorkOnePartTwo;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MyPolynomial {
@@ -110,6 +111,22 @@ public class MyPolynomial {
         MyPolynomial myPolynomial = new MyPolynomial(newCoeffs);
         return myPolynomial;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        MyPolynomial polinomial  = (MyPolynomial) obj;
+        return (Arrays.compare(this.coeffs, polinomial.coeffs) == 0);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Arrays.hashCode(coeffs);
+        return result;
+    }
+
 }
 
 

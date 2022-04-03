@@ -40,4 +40,20 @@ public class Rectangle {
     public String toString() {
         return "Rectangle [ length =" + length + ", width =" + width +'\''+ ']';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        Rectangle rectangle = (Rectangle) obj;
+        return (Float.compare(this.length, rectangle.length) == 0) && (Float.compare(this.width, rectangle.width) == 0);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Float.hashCode(length);
+        result = 31 * result + Float.hashCode(width);
+        return result;
+    }
 }

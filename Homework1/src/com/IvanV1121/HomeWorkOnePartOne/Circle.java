@@ -39,4 +39,20 @@ public class Circle {
     public String toString() {
         return "Circle [ radius =" + radius + ", color =" + color +'\''+ ']';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        Circle circle = (Circle) obj;
+        return (Double.compare(this.radius, circle.radius) == 0) && (this.color.equals(circle.color));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(radius);
+        result = 31 * result + color.hashCode();
+        return result;
+    }
 }

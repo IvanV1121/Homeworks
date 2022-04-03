@@ -1,5 +1,6 @@
 package com.IvanV1121.HomeWorkOnePartOne;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyTriangle {
@@ -48,5 +49,22 @@ public class MyTriangle {
         }else{
             return "Scalene";
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        MyTriangle triangle = (MyTriangle) obj;
+        return (this.v1.equals(triangle.v1)) && (this.v2.equals(triangle.v2))&& (this.v3.equals(triangle.v3));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + v1.hashCode();
+        result = 31 * result + v2.hashCode();
+        result = 31 * result + v3.hashCode();
+        return result;
     }
 }

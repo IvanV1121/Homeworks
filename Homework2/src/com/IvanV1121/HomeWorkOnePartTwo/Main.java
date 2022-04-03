@@ -126,5 +126,55 @@ public class Main {
         System.out.println(ball);
         System.out.println(container.collides(ball));
 
+
+        System.out.println("MyComplex equals and hashCode");
+        MyComplex myComplex15 = new MyComplex(2,3);
+        MyComplex myComplex16 = new MyComplex(2,3);
+        if (myComplex15.equals(myComplex16)) {
+            System.out.println("The complex numbers are equivalent");
+        }else {
+            System.out.println("The complex numbers are not equivalent");
+        }
+        System.out.println(myComplex15.hashCode());
+        System.out.println(myComplex16.hashCode());
+
+
+        System.out.println("MyPolinomial equals and hashCode");
+        double[] myArray15 = {5.0, 6.0, 7.0, 8.0};
+        MyPolynomial myPolynomial15 = new MyPolynomial(myArray15);
+        MyPolynomial myPolynomial16 = new MyPolynomial(myArray15);
+        if (myPolynomial15.equals(myPolynomial16)) {
+            System.out.println("The polinomials are equivalent");
+        }else {
+            System.out.println("The polinomials are not equivalent");
+        }
+
+        System.out.println(myPolynomial15.hashCode());
+        System.out.println(myPolynomial16.hashCode());
+
+
+        System.out.println("Container equals and hashCode");
+        Container container1 = new Container(-20, -20, 40, 40);
+        Container container2 = new Container(-20, -20, 40, 40);
+        if (container1.equals(container2)) {
+            System.out.println("The containers are equivalent");
+        }else {
+            System.out.println("The containers are not equivalent");
+        }
+        System.out.println(container1.hashCode());
+        System.out.println(container2.hashCode());
+
+
+        System.out.println("Ball equals and hashCode");
+        Ball ball1 = new Ball(2.0f, 1.0f, 5,6,7);
+        Ball ball2 = new Ball(2.0f, 1.0f, 5,6,7);
+        if (ball1.equals(ball2)) {
+            System.out.println("The balls are equivalent");
+        }else {
+            System.out.println("The balls are not equivalent");
+        }
+        System.out.println(ball1.hashCode());
+        System.out.println(ball2.hashCode());
+
    }
 }

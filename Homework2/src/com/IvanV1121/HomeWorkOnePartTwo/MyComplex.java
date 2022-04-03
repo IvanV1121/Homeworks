@@ -43,21 +43,11 @@ public class MyComplex {
     }
 
     public boolean isReal(){
-        if (real != 0){
-            return true;
-        }
-        else {
-        return false;
-        }
+        return (real != 0);
     }
 
     public boolean isImage(){
-        if (imag != 0){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (imag != 0);
     }
 
     public boolean equals(double real, double image){
@@ -145,7 +135,21 @@ public class MyComplex {
         return myComplex;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(this.getClass().equals(obj.getClass()))) return false;
+        MyComplex complex  = (MyComplex) obj;
+        return (Double.compare(this.real, complex.real) == 0) && (Double.compare(this.imag, complex.imag) == 0);
+    }
 
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Double.hashCode(real);
+        result = 31 * result + Double.hashCode(imag);
+        return result;
+    }
 
 
 }
