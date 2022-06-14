@@ -14,17 +14,17 @@ public class ShopQueryController {
     private ShopService service;
 
     @GetMapping("sovetsky")
-    public List<String> getSovetskyShops() {
-        return service.getByLocation("Sovetsky");
+    public List<String> getSovetskyShops(@RequestParam String district) {
+        return service.getByLocation(district);
     }
 
     @GetMapping("sormovsky")
-    public List<String> getSormovskyShops() {
-        return service.getByLocation("Sormovsky");
+    public List<String> getSormovskyShops(@RequestParam String district) {
+        return service.getByLocation(district);
     }
 
     @GetMapping("discount-10-15-percent")
-    public List<String> getShopsWithDiscount() {
-        return service.getWithDiscountBetween10And15();
+    public List<String> getShopsWithDiscount(@RequestParam String district, @RequestParam Integer lower, @RequestParam Integer upper) {
+        return service.getWithDiscountBetween10And15(district, lower, upper);
     }
 }

@@ -28,13 +28,13 @@ public class PurchaseQueryController {
         return service.getCustomersAndBooks();
     }
 
-    @GetMapping("order-60000")
-    public List<Object[]> getPurchases60000() {
-        return service.getSumMoreThan60000();
+    @GetMapping("order-more-then")
+    public List<Object[]> getPurchasesMoreThenGiven(@RequestParam Integer minSum) {
+        return service.getSumMoreThanGiven(minSum);
     }
 
     @GetMapping("in-the-same-district")
-    public List<Object[]> getPurchasesInTheSameDistrict() {
-        return service.getInTheSameDistrict();
+    public List<Object[]> getPurchasesInTheSameDistrict(@RequestParam String dateString) {
+        return service.getInTheSameDistrict(dateString);
     }
 }

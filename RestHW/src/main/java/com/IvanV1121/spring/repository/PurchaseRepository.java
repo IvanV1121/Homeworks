@@ -22,11 +22,11 @@ public interface PurchaseRepository extends JpaRepository<Purchase, Integer> {
     List<Object[]> findCustomersAndBooks();
 
     @Query(value = "select p.purchase_id, c.customer_name, p.purchase_date from purchase p join customer c on (c.customer_id = p.purchase_customer) " +
-                   "where p.p_sum >= 60000", nativeQuery = true)
-    List<Object[]> findSumMoreThan60000();
+            "where p.p_sum >= :minSum", nativeQuery = true)
+    List<Object[]> findSumMoreThanGiven(int minSum);
 
     @Query(value = "select p.purchase_id, c.customer_name, c.customer_district, p.purchase_date from purchase p join customer c " +
-                   "on (c.customer_id = p.purchase_customer) join shop s on (s.shop_id = p.purchase_shop and s.shop_location = c.customer_district) " +
-                   "where p.purchase_date >= cast('2022-03-01' as date) order by p.purchase_date", nativeQuery = true)
-    List<Object[]> findInTheSameDistrict();
+            "on (c.customer_id = p.purchase_customer) join shop s on (s.shop_id = p.purchase_shop and s.shop_location = c.customer_district) " +
+            "where p.purchase_date >= cast(dateString as date) order by p.purchase_date", nativeQuery = true)
+    List<Object[]> findInTheSameDistrict(String dateString);
 }

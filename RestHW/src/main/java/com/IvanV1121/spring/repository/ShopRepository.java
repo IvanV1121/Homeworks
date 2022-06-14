@@ -12,10 +12,11 @@ import java.util.List;
 public interface ShopRepository extends JpaRepository<Shop, Integer> {
 
     @Query(value = "select shop_name from shop where shop_location = :district", nativeQuery = true)
-    List<String> findByLocation(@Param("district") String district);
+    List<String> findByLocation(String district);
 
     @Query(value = "select distinct s.shop_name from shop s join purchase p on " +
-                   "(s.shop_id = p.purchase_shop and s.shop_location <> 'Avtozavodsky') join customer c on " +
-                   "(c.customer_id = p.purchase_customer and c.customer_sale between 10 and 15)", nativeQuery = true)
-    List<String> findCustomersWithSaleBetween10And15();
+            "(s.shop_id = p.purchase_shop and s.shop_location <> :district) join customer c on " +
+            "(c.customer_id = p.purchase_customer and c.customer_sale between :lower and :upper)", nativeQuery = true)
+    List<String> findCustomersWithSaleBetween10And15(String district, int lower, int upper);
+
 }

@@ -94,12 +94,12 @@ public class PurchaseService {
         return repository.findCustomersAndBooks();
     }
 
-    public List<Object[]> getSumMoreThan60000() {
-        return repository.findSumMoreThan60000();
+    public List<Object[]> getSumMoreThanGiven(int minSum) {
+        return repository.findSumMoreThanGiven(minSum);
     }
 
-    public List<Object[]> getInTheSameDistrict() {
-        return repository.findInTheSameDistrict();
+    public List<Object[]> getInTheSameDistrict(String dateString) {
+        return repository.findInTheSameDistrict(dateString);
     }
 
     /////////////////////////////////////////////////////// Aux ////////////////////////////////////////////////////////

@@ -67,10 +67,10 @@ public class BookService {
     public List<Object[]> getTitlesAndPrices() {
         return repository.findTitleAndPrices();
     }
-    public List<Object[]> getWindowsOr20000() {
-        return repository.findWindowsOr20000();
+    public List<Object[]> getSubstringOrMinPrice(String substring, int minSum) {
+        return repository.findSubstringOrMinPrice(substring, minSum);
     }
-    public List<Object[]> getPurchasedInfo() {
-        return repository.findPurchasedInfo();
+    public List<Object[]> getPurchasedInfo(int minQuantity) {
+        return repository.findPurchasedInfo(minQuantity);
     }
 }

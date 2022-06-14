@@ -62,7 +62,8 @@ public class ShopService {
         return repository.findByLocation(district);
     }
 
-    public List<String> getWithDiscountBetween10And15() {
-        return repository.findCustomersWithSaleBetween10And15();
+    public List<String> getWithDiscountBetween10And15(String district, int lower, int upper) {
+        return repository.findCustomersWithSaleBetween10And15(district, lower, upper);
     }
+
 }

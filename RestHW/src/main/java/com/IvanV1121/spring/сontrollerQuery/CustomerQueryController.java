@@ -18,8 +18,8 @@ public class CustomerQueryController {
         return service.getDistricts();
     }
 
-    @GetMapping("nizhegorodsky-customers")
-    public List<Object[]> getNizhegorodskyCustomers() {
-        return service.getByDistrict("Nizhegorodsky");
+    @GetMapping("district-customers")
+    public List<Object[]> getDistrictCustomers(@RequestParam String district) {
+        return service.getByDistrict(district);
     }
 }

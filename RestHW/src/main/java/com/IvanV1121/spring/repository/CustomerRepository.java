@@ -15,5 +15,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     List<String> findDistricts();
 
     @Query(value = "select customer_name, customer_sale from customer where customer_district = :district", nativeQuery = true)
-    List<Object[]> findByDistrict(@Param("district") String district);
+    List<Object[]> findByDistrict(String district);
 }

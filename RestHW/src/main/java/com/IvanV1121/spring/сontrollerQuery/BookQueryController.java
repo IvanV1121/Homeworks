@@ -18,13 +18,13 @@ public class BookQueryController {
         return service.getTitlesAndPrices();
     }
 
-    @GetMapping("word-windows-or-price-more-20000")
-    public List<Object[]> getBooksWindowsOr20000() {
-        return service.getWindowsOr20000();
+    @GetMapping("word-substring-or-price-more-than-given")
+    public List<Object[]> getSubstringOrMinPrice(@RequestParam String substring, @RequestParam Integer minSum) {
+        return service.getSubstringOrMinPrice(substring, minSum);
     }
 
     @GetMapping("purchased-information")
-    public List<Object[]> getBooksPurchasedInfo() {
-        return service.getPurchasedInfo();
+    public List<Object[]> getBooksPurchasedInfo(@RequestParam Integer minQuantity) {
+        return service.getPurchasedInfo(minQuantity);
     }
 }
